@@ -1,75 +1,132 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Your Title Here</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <h1>Planetary Fact Sheet</h1>
-  <table id="planets">
-    <tr>
-      <th></th>
-      <th>Planet 1</th>
-      <th>Planet 2</th>
-      <th>Planet 3</th>
-      <th>Planet 4</th>
-    </tr>
-    <tr>
-      <td>Images of ??</td>
-      <td><img src="images/planet_1.png" alt="?"></td>
-      <td><img src="images/planet_2.png" alt="?"></td>
-      <td><img src="images/planet_3.png" alt="?"></td>
-      <td><img src="images/planet_4.png" alt="?"></td>
-    </tr>
-    <tr>
-      <td>Fact #1</td>
-      <td>???</td>
-      <td>???</td>
-      <td>???</td>
-      <td>???</td>
-    </tr>
-    <tr>
-      <td>Fact #2</td>
-      <td>???</td>
-      <td>???</td>
-      <td>???</td>
-      <td>???</td>
-    </tr>
-    <tr>
-      <td>Fact #3</td>
-      <td>???</td>
-      <td>???</td>
-      <td>???</td>
-      <td>???</td>
-    </tr>
-    <tr>
-      <td>Fact #4</td>
-      <td>???</td>
-      <td>???</td>
-      <td>???</td>
-      <td>???</td>
-    </tr>
-    <tr>
-      <td>Fact #5</td>
-      <td>???</td>
-      <td>???</td>
-      <td>???</td>
-      <td>???</td>
-    </tr>
-    <tr>
-      <td>Fact #6</td>
-      <td>???</td>
-      <td>???</td>
-      <td>???</td>
-      <td>???</td>
-    </tr>
-    <tr>
-      <td>Fact #7</td>
-      <td>???</td>
-      <td>???</td>
-      <td>???</td>
-      <td>???</td>
-    </tr>
-  </table>
-</body>
+/* Base layout */
+:root {
+  --ink: #1b1f23;
+  --muted: #5e6b7a;
+  --accent: #2a7cff;
+  --bg: #0e1116;
+  --card: #121722;
+  --stripe: #0f1a2a;
+  --table-border: #1f2a3a;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, var(--bg), #0b0f15 60%);
+  color: #e8eef7;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.45;
+}
+
+#site-header {
+  text-align: center;
+  padding: 2.5rem 1rem 1rem;
+}
+
+.title {
+  margin: 0 0 0.25rem 0;
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+#content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+}
+
+/* Table styling */
+.data-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--card);
+  border: 1px solid var(--table-border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+.data-table caption {
+  caption-side: top;
+  text-align: left;
+  padding: 1rem 1rem 0.5rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.data-table thead th {
+  background: linear-gradient(180deg, #162235, #131d2b);
+  font-weight: 700;
+  text-align: center;
+  padding: 0.9rem 0.75rem;
+  border-bottom: 1px solid var(--table-border);
+}
+
+.data-table tbody td,
+.data-table tbody th {
+  padding: 0.9rem 0.75rem;
+  border-bottom: 1px solid var(--table-border);
+}
+
+.data-table tbody tr:nth-child(odd) {
+  background: var(--stripe);
+}
+
+.rowhead {
+  text-align: left;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.image-row td {
+  padding-top: 1.25rem;
+}
+
+.planet-img {
+  display: block;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #1e2a3a;
+  margin: 0 auto;
+}
+
+/* Footer */
+#site-footer {
+  max-width: 1100px;
+  margin: 1rem auto 3rem;
+  padding: 0 1.25rem;
+  color: var(--muted);
+}
+
+#site-footer em {
+  color: #b7c5d9;
+  font-weight: 500;
+}
+
+/* Interactions */
+.data-table tbody tr:hover {
+  background: #142036;
+}
+
+/* Responsive tweaks */
+@media (max-width: 720px) {
+  .planet-img { width: 84px; height: 84px; }
+  .title { font-size: 1.8rem; }
+  .data-table caption { padding-left: 0.75rem; }
+}
