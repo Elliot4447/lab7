@@ -1,132 +1,92 @@
-/* Base layout */
-:root {
-  --ink: #1b1f23;
-  --muted: #5e6b7a;
-  --accent: #2a7cff;
-  --bg: #0e1116;
-  --card: #121722;
-  --stripe: #0f1a2a;
-  --table-border: #1f2a3a;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Planetary Fact Sheet — Combined Table</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header">
+    <h1 class="title">Planetary Fact Sheet</h1>
+    <p class="subtitle">Mercury • Venus • Earth • Mars</p>
+  </header>
 
-html, body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(180deg, var(--bg), #0b0f15 60%);
-  color: #e8eef7;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.45;
-}
+  <main id="content">
+    <table id="planets" class="data-table">
+      <caption>Selected physical properties (metric units)</caption>
+      <thead>
+        <tr>
+          <th scope="col" class="rowhead"></th>
+          <th scope="col">Mercury</th>
+          <th scope="col">Venus</th>
+          <th scope="col">Earth</th>
+          <th scope="col">Mars</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="image-row">
+          <td class="rowhead">Images</td>
+          <td><img src="images/mercury.jpg" alt="Mercury globe mosaic" class="planet-img"></td>
+          <td><img src="images/venus.jpg" alt="Venus in natural color" class="planet-img"></td>
+          <td><img src="images/earth.jpg" alt="Earth — Blue Marble" class="planet-img"></td>
+          <td><img src="images/mars.jpg" alt="Mars global mosaic" class="planet-img"></td>
+        </tr>
+        <tr>
+          <td class="rowhead">Mass (10^24 kg)</td>
+          <td class="num">0.330</td>
+          <td class="num">4.87</td>
+          <td class="num">5.97</td>
+          <td class="num">0.642</td>
+        </tr>
+        <tr>
+          <td class="rowhead">Diameter (km)</td>
+          <td class="num">4,879</td>
+          <td class="num">12,104</td>
+          <td class="num">12,756</td>
+          <td class="num">6,794</td>
+        </tr>
+        <tr>
+          <td class="rowhead">Density (kg/m³)</td>
+          <td class="num">5,427</td>
+          <td class="num">5,243</td>
+          <td class="num">5,515</td>
+          <td class="num">3,933</td>
+        </tr>
+        <tr>
+          <td class="rowhead">Surface gravity (m/s²)</td>
+          <td class="num">3.7</td>
+          <td class="num">8.9</td>
+          <td class="num">9.8</td>
+          <td class="num">3.7</td>
+        </tr>
+        <tr>
+          <td class="rowhead">Escape velocity (km/s)</td>
+          <td class="num">4.3</td>
+          <td class="num">10.4</td>
+          <td class="num">11.2</td>
+          <td class="num">5.0</td>
+        </tr>
+        <tr>
+          <td class="rowhead">Rotation period (hours)</td>
+          <td class="num">1,407.6</td>
+          <td class="num">−5,832.5</td>
+          <td class="num">23.93</td>
+          <td class="num">24.62</td>
+        </tr>
+        <tr>
+          <td class="rowhead">Distance from Sun (10^6 km)</td>
+          <td class="num">57.9</td>
+          <td class="num">108.2</td>
+          <td class="num">149.6</td>
+          <td class="num">227.9</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
 
-#site-header {
-  text-align: center;
-  padding: 2.5rem 1rem 1rem;
-}
-
-.title {
-  margin: 0 0 0.25rem 0;
-  font-size: 2.25rem;
-  font-weight: 800;
-  letter-spacing: 0.3px;
-}
-
-.subtitle {
-  margin: 0;
-  color: var(--muted);
-  font-style: italic;
-}
-
-#content {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 1rem 1.25rem 3rem;
-}
-
-/* Table styling */
-.data-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  background: var(--card);
-  border: 1px solid var(--table-border);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
-}
-
-.data-table caption {
-  caption-side: top;
-  text-align: left;
-  padding: 1rem 1rem 0.5rem;
-  color: var(--muted);
-  font-weight: 600;
-}
-
-.data-table thead th {
-  background: linear-gradient(180deg, #162235, #131d2b);
-  font-weight: 700;
-  text-align: center;
-  padding: 0.9rem 0.75rem;
-  border-bottom: 1px solid var(--table-border);
-}
-
-.data-table tbody td,
-.data-table tbody th {
-  padding: 0.9rem 0.75rem;
-  border-bottom: 1px solid var(--table-border);
-}
-
-.data-table tbody tr:nth-child(odd) {
-  background: var(--stripe);
-}
-
-.rowhead {
-  text-align: left;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.num {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-.image-row td {
-  padding-top: 1.25rem;
-}
-
-.planet-img {
-  display: block;
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #1e2a3a;
-  margin: 0 auto;
-}
-
-/* Footer */
-#site-footer {
-  max-width: 1100px;
-  margin: 1rem auto 3rem;
-  padding: 0 1.25rem;
-  color: var(--muted);
-}
-
-#site-footer em {
-  color: #b7c5d9;
-  font-weight: 500;
-}
-
-/* Interactions */
-.data-table tbody tr:hover {
-  background: #142036;
-}
-
-/* Responsive tweaks */
-@media (max-width: 720px) {
-  .planet-img { width: 84px; height: 84px; }
-  .title { font-size: 1.8rem; }
-  .data-table caption { padding-left: 0.75rem; }
-}
+  <footer id="site-footer">
+    <p><em>Sources:</em> NASA/NSSDCA Planetary Fact Sheet (metric) and NASA Science planet pages.</p>
+  </footer>
+</body>
+</html>
